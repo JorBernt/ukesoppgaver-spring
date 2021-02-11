@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+Skriv inn måned: <input id="innTekst">
+<button type="button" id="knapp">Vis temperatur</button>
+<div id="visTemp"></div>
 
 </body>
+
+<script type="application/javascript">
+    $(function () {
+        $("#knapp").click(function () {
+            const url = "/?maned=" + $("#innTekst").val();
+            $.get(url, function(data) {
+                $("#visTemp").html(data)
+            });
+        })
+    })
+</script>
 </html>
